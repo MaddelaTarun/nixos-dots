@@ -62,4 +62,13 @@
   };
 
   programs.fish.enable = true;
+
+  # Helium Configuration (Unwrapped from extra braces)
+  programs.helium = {
+    enable = true;
+    flags = [
+      "--ozone-platform-hint=auto"
+      "--enable-features=WaylandWindowDecorations"
+    ];
+  };
 }
