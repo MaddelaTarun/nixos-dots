@@ -1,0 +1,92 @@
+* {
+    font-family: "Liga SFMono Nerd Font";
+    /* font-family: Lilex; */
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+window#waybar {
+    background-color: #121212; 
+    color: #ffffff;           
+    border-top: 1px solid #1a1a1a; 
+}
+
+/* --- Left: Workspaces Pill --- */
+#workspaces {
+    background-color: #1a1a1a;
+    margin: 4px 10px;
+    padding: 0 8px;
+    border-radius: 12px;
+}
+
+#workspaces button {
+    color: #57575F;
+    padding: 0 6px;
+    background: transparent; /* Explicitly remove backgrounds */
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+    background: transparent; /* Ensure no white box on focus */
+}
+
+#workspaces button:hover {
+    background: transparent; /* Ensure no white box on hover */
+    color: #ffffff; 
+}
+
+/* --- Center: Clock Pill --- */
+#clock {
+    background-color: #1a1a1a;
+    margin: 4px 0;
+    padding: 0 15px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* --- Right: Resource Pill (Combined CPU/RAM) --- */
+#cpu {
+    background-color: #1a1a1a;
+    margin: 4px 0;
+    padding: 0 5px 0 12px;
+    border-radius: 12px 0 0 12px;
+}
+
+#memory {
+    background-color: #1a1a1a;
+    margin: 4px 0;
+    padding: 0 12px 0 5px;
+    border-radius: 0 12px 12px 0;
+}
+
+/* --- Right: Volume Pill --- */
+#pulseaudio {
+    background-color: #1a1a1a;
+    margin: 4px 10px;
+    padding: 0 12px;
+    border-radius: 12px;
+}
+
+/* --- Right: Tray Pill --- */
+#tray {
+    background-color: #1a1a1a;
+    margin: 4px 10px 4px 0;
+    padding: 0 12px;
+    border-radius: 12px;
+}
+
+#tray > .passive, #tray > .active, #tray > .needs-attention {
+    margin: 0 4px;
+}
+
+#custom-power {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    margin: 4px 10px 4px 0;
+    padding: 0 12px;
+    border-radius: 12px;
+}

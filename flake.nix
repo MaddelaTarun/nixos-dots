@@ -1,31 +1,35 @@
 {
-  description = "Simple NixOS Setup - Tarun";
+  description = "Tarun's NixOS Configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    
-    # Helium Browser Flake
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     helium-flake.url = "github:oxcl/nix-flake-helium-browser";
     helium-flake.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Otter Launcher
     otter-launcher.url = "github:kuokuo123/otter-launcher";
     otter-launcher.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, helium-flake, otter-launcher, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, helium-flake, otter-launcher, ... }@inputs: {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
-        ./configuration.nix
-        
-        # Inject the Helium browser module globally into your system
+        ./hosts/desktop
         helium-flake.nixosModules.default
-	({ pkgs,...}: {
-	  environment.systemPackages = [
-	    otter-launcher.packages."x86_64-linux".default
-	  ];
-	})
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.t = import ./modules/home;
+        }
       ];
     };
   };

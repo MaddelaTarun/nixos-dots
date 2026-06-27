@@ -1,0 +1,46 @@
+{ pkgs, inputs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    neovim
+    kitty
+    gnumake
+    gcc
+    nwg-look
+    ripgrep
+    fd
+    python3
+    cargo
+    go
+    lazygit
+    pyright
+    gh
+    gopls
+    lua-language-server
+    tree-sitter
+    spotify
+    tmux
+    niri
+    wget
+    fsel
+    git
+    eza
+    zoxide
+    unzip
+    xwayland-satellite
+    btop
+    fzf
+    awww
+    pkgs.elmPackages.nodejs
+    yazi
+    clipse
+    fish
+    starship
+    bat
+    vesktop
+    tealdeer
+    wl-clipboard
+    waybar
+    inputs.otter-launcher.packages."x86_64-linux".default
+  ];
+}

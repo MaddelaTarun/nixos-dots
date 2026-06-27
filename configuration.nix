@@ -144,6 +144,7 @@
     lua-language-server
     tree-sitter
     spotify
+    tmux
     niri
     wget
     fsel
