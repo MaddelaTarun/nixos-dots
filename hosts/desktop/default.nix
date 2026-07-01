@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/system
+    ../../modules/system/nvidia.nix
   ];
 
   networking.hostName = "desktop";

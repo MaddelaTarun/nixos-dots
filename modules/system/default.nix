@@ -2,7 +2,6 @@
 {
   imports = [
     ./niri.nix
-    ./nvidia.nix
     ./packages.nix
   ];
 

@@ -42,5 +42,7 @@
     wl-clipboard
     waybar
     inputs.otter-launcher.packages."x86_64-linux".default
+    bun
+    vscode
   ];
 }
